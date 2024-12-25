@@ -1,13 +1,17 @@
 import { Image, StyleSheet, Platform, View, Text } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Courses from '@/components/home/courses';
+import HeaderContainer from '@/components/header';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
       {/*  Top view with name and along with image on side */}
-      <View style={styles.topContainer}>
-        <View>
+      <View>
+        <HeaderContainer />
+      </View>
+      {/* <View style={styles.topContainer}>
+        <View style={styles.nameContainer}>
           <Text>Hello, Mukelani</Text>
           <Text><Ionicons name='trophy' size={10} ></Ionicons>Student</Text>
         </View>
@@ -17,7 +21,7 @@ export default function HomeScreen() {
             style={styles.reactLogo}
           />
         </View>
-      </View>
+      </View> */}
 
 
       <Text>let's learn something new</Text>
@@ -59,7 +63,7 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     flex: 1,
     width: "100%",
-    
+
   },
   titleContainer: {
     flexDirection: 'row',
@@ -91,6 +95,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     backgroundColor: "lightblue",
     padding: 9,
+    borderRadius: 20,
+  },
+  nameText: {
+
+  },
+  nameContainer: {
+    backgroundColor: 'white',
+    padding: 5,
     borderRadius: 20,
   }
 });
