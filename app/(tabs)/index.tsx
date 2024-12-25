@@ -5,18 +5,17 @@ import Courses from '@/components/home/courses';
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-
       {/*  Top view with name and along with image on side */}
-      <View>
+      <View style={styles.topContainer}>
         <View>
           <Text>Hello, Mukelani</Text>
           <Text><Ionicons name='trophy' size={10} ></Ionicons>Student</Text>
         </View>
         <View>
-          {/* <Image
-            source={require('../../images/icon.png')}
+          <Image
+            source={require('../../assets/images/icon.png')}
             style={styles.reactLogo}
-          /> */}
+          />
         </View>
       </View>
 
@@ -50,10 +49,17 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
+  textTop: {
+    fontSize: 30,
+    fontStyle: "normal",
+  },
   container: {
-    padding: 8,
+    padding: 10,
     paddingTop: Platform.OS === 'android' ? 25 : 0,
     backgroundColor: "white",
+    flex: 1,
+    width: "100%",
+    
   },
   titleContainer: {
     flexDirection: 'row',
@@ -67,6 +73,7 @@ const styles = StyleSheet.create({
   reactLogo: {
     width: 50,
     borderRadius: 25,
+    height: 50,
 
   },
   topStudentContainer: {
@@ -78,5 +85,12 @@ const styles = StyleSheet.create({
     borderColor: "grey",
     borderWidth: 1,
     backgroundColor: "lightgrey",
+  },
+  topContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "lightblue",
+    padding: 9,
+    borderRadius: 20,
   }
 });
