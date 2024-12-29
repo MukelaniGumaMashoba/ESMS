@@ -6,7 +6,7 @@ export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
 
-      <View>
+      <View style={styles.textInput}>
         <Ionicons name='search-circle-outline' size={20} />
         <TextInput
           placeholder='search content'
@@ -34,4 +34,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 8,
   },
+  textInput: {
+    flexDirection: "row",
+  },
+
 });
