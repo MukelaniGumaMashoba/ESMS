@@ -10,19 +10,6 @@ export default function HomeScreen() {
       <View>
         <HeaderContainer />
       </View>
-      {/* <View style={styles.topContainer}>
-        <View style={styles.nameContainer}>
-          <Text>Hello, Mukelani</Text>
-          <Text><Ionicons name='trophy' size={10} ></Ionicons>Student</Text>
-        </View>
-        <View>
-          <Image
-            source={require('../../assets/images/icon.png')}
-            style={styles.reactLogo}
-          />
-        </View>
-      </View> */}
-
 
       <Text>let's learn something new</Text>
 
