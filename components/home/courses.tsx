@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, StyleSheet } from 'react-native'
+import { Text, View, StyleSheet, Dimensions } from 'react-native'
 
 
 
@@ -8,7 +8,7 @@ export default function Courses() {
         <View style={styles.container}>
             {/* 1st section */}
             <View style={styles.containers}>
-            <View style={styles.firContainer}>
+                <View style={styles.firContainer}>
                     <Text style={styles.topText}>Mathematics</Text>
                     <Text style={styles.containerText}>Grade 12</Text>
                 </View>
@@ -38,16 +38,16 @@ export default function Courses() {
 
 const styles = StyleSheet.create({
     container: {
-        // flex: 1,
         flexDirection: "column",
-        marginHorizontal: 10,
-        padding: 8,
-        backgroundColor: 'grey',
+        padding: 10,
+        backgroundColor: '#f5f7f5',
         borderRadius: 20,
-        borderColor: "grey",
-        borderWidth: 4,
+        borderColor: "lightgrey",
+        borderWidth: 1,
         justifyContent: "space-between",
         gap: 2,
+        width: "100%",
+        alignItems: "center",
     },
     topText: {
         fontSize: 12,
@@ -60,19 +60,36 @@ const styles = StyleSheet.create({
         flexDirection: "row"
     },
     firContainer: {
-        backgroundColor: "grey",
+        backgroundColor: "#FEEA00",
         borderRadius: 20,
         padding: 10,
         margin: 5,
+        width: "50%",
+        height: Dimensions.get("window").height / 6,
     },
     secContainer: {
-        backgroundColor: "white"
+        backgroundColor: "#47e67c",
+        borderRadius: 20,
+        padding: 10,
+        margin: 5,
+        width: "50%",
+        height: Dimensions.get("window").height / 6,
     },
     thirContainer: {
         backgroundColor: "lightblue",
+        borderRadius: 20,
+        padding: 10,
+        margin: 5,
+        width: "50%",
+        height: Dimensions.get("window").height / 6,
     },
     forContainer: {
-        backgroundColor: "lightgreen",
+        backgroundColor: "#f7b320",
+        borderRadius: 20,
+        padding: 10,
+        margin: 5,
+        width: "50%",
+        height: Dimensions.get("window").height / 6,
     },
     // subjectText: {
 

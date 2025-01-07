@@ -1,41 +1,68 @@
-import { Image, StyleSheet, Platform, View, Text } from 'react-native';
+import { Image, StyleSheet, Platform, View, Text, StatusBar, ImageBackground, ScrollView } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import Courses from '@/components/home/courses';
 import HeaderContainer from '@/components/header';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      {/*  Top view with name and along with image on side */}
-      <View>
-        <HeaderContainer />
-      </View>
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          barStyle="dark-content" // Sets the text color to light
+          backgroundColor="white" // Sets the background color
+          translucent={false} // Makes the status bar opaque
+        />
 
-      <Text>let's learn something new</Text>
-
-      {/* 4 section of the courses/ subjects owenzayo wena */}
-      <View>
-        <Courses />
-      </View>
-
-
-      {/* top student section */}
-      <View>
-        <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <Text>Top Students</Text>
-          <Text>Show All</Text>
+        {/*  Top view with name and along with image on side */}
+        <View>
+          <HeaderContainer />
         </View>
 
-        <View style={styles.topStudentContainer}>
-          {/* <Image source={require("../../assets/images/icon.png")} /> */}
+        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, gap: 10, marginBottom: 10 }}>
           <View>
-            <Text>Mukelani Mashoba</Text>
-            <Text>Student</Text>
+            <Text style={{ fontSize: 23, fontFamily: "Arial" }}>let's learn</Text>
+            <Text style={{ fontSize: 25, fontWeight: "400" }}>something new today</Text>
           </View>
-          <Ionicons name='arrow-forward' size={10} />
-        </View>
-      </View>
-    </View>
+
+
+          {/* 4 section of the courses/ subjects owenzayo wena */}
+          <View>
+            <Courses />
+          </View>
+
+
+          {/* top student section */}
+          <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+            <Text style={{ fontSize: 18 }}>Top Students</Text>
+            <Text>Show All</Text>
+          </View>
+
+          <View style={styles.topStudentContainer}>
+            <Image source={require("../../assets/images/icon.png")} style={{ height: "70%", width: "15%", borderRadius: 10 }} />
+            <View>
+              <Text style={{ fontWeight: "bold" }}>Mukelani Mashoba</Text>
+              <Text style={{ color: "grey" }}>Student</Text>
+            </View>
+            <Ionicons name='arrow-forward' size={10} />
+          </View>
+
+          <View style={styles.banner}>
+            <ImageBackground source={require("../../assets/pictures/img3.jpg")} style={{ width: '100%', height: 200, borderRadius: 20, overflow: 'hidden', justifyContent: 'center', alignItems: 'center' }}>
+              <View style={styles.photoContainer}>
+                <Text style={{ color: "white", fontWeight: "300", fontSize: 18 }}>Let's Learn Together</Text>
+              </View>
+            </ImageBackground>
+          </View>
+
+          <View style={{marginTop: -20}}>
+            <Text style={{ fontSize: 3, color: "lightgrey" }}>mgm group</Text>
+          </View>
+
+
+        </ScrollView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
@@ -46,10 +73,11 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 10,
-    paddingTop: Platform.OS === 'android' ? 25 : 0,
+    // paddingTop: Platform.OS === 'android' ? 25 : 0,
     backgroundColor: "white",
     flex: 1,
     width: "100%",
+    gap: 10,
 
   },
   titleContainer: {
@@ -69,13 +97,19 @@ const styles = StyleSheet.create({
   },
   topStudentContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
-    gap: 8,
     borderRadius: 10,
-    borderColor: "grey",
+    borderColor: "lightgrey",
     borderWidth: 1,
-    backgroundColor: "lightgrey",
+    backgroundColor: "#ededed",
+    height: "10%",
+  },
+  banner: {
+    // flexDirection: 'row',
+    // justifyContent: 'space-evenly',
+    alignItems: 'center',
+    marginBottom: 40,
   },
   topContainer: {
     flexDirection: "row",
@@ -91,5 +125,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     padding: 5,
     borderRadius: 20,
-  }
+  },
+  photoContainer: {
+    // backgroundColor: 'lightgrey',
+    padding: 5,
+    borderRadius: 20,
+    height: "20%",
+    width: "100%",
+  },
+
 });

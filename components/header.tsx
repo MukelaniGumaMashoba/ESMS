@@ -7,11 +7,11 @@ function HeaderContainer() {
         <View style={styles.topContainer}>
             <View style={styles.nameContainer}>
                 <Text>Hello, Mukelani</Text>
-                <Text><Ionicons name='trophy' size={10} ></Ionicons>Student</Text>
+                <Text><Ionicons name='trophy' size={10} ></Ionicons> Student</Text>
             </View>
             <View>
                 <Image
-                    source={require('../../assets/images/icon.png')}
+                    source={require('../assets/images/icon.png')}
                     style={styles.reactLogo}
                 />
             </View>
@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         padding: 5,
         borderRadius: 20,
+        gap: 1,
     }, reactLogo: {
         width: 50,
         borderRadius: 25,
