@@ -1,6 +1,7 @@
 import HeaderContainer from '@/components/header'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function setting() {
 
@@ -11,27 +12,31 @@ export default function setting() {
 
 
     return (
-        <View>
-            {/* top session */}
-            <View>
-                <HeaderContainer />
-            </View>
+        <SafeAreaProvider>
+            <SafeAreaView style={styles.container}>
+                {/* top session */}
+                <View>
+                    <HeaderContainer />
+                </View>
 
-            <TouchableOpacity onPress={HandleLogout} style={styles.logoutBtn}>
-                <Text>Logout</Text>
-            </TouchableOpacity>
+                <TouchableOpacity onPress={HandleLogout} style={styles.logoutBtn}>
+                    <Text>Logout</Text>
+                </TouchableOpacity>
 
 
-            <Text>Settings</Text>
-        </View>
+                <Text>Settings</Text>
+            </SafeAreaView>
+        </SafeAreaProvider>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-
+        flex: 1,
+        backgroundColor: "white",
+        padding: 10,
     },
     logoutBtn: {
-        
+
     }
 })

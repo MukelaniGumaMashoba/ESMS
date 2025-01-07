@@ -1,21 +1,34 @@
-import { StyleSheet, Image, Platform, Text, View, TextInput } from 'react-native';
+import { StyleSheet, Image, Platform, Text, View, TextInput, StatusBar } from 'react-native';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Ionicons } from '@expo/vector-icons';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function TabTwoScreen() {
   return (
-    <View style={styles.container}>
-
-      <View style={styles.textInput}>
-        <Ionicons name='search-circle-outline' size={20} />
-        <TextInput
-          placeholder='search content'
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <StatusBar
+          barStyle="dark-content" // Sets the text color to light
+          backgroundColor="white" // Sets the background color
+          translucent={false} // Makes the status bar opaque
         />
-      </View>
+        <View >
+          <View style={styles.textInput}>
+            <Ionicons name='search-circle-outline' size={20} />
+            <TextInput
+              placeholder='search content'
+              style={{ width: '90%' }}
+            />
+          </View>
 
+          <View>
+            <Text style={{fontFamily: "Roboto-Bold"}}>Explore</Text>
+          </View>
 
-      <Text>Explore</Text>
-    </View>
+        </View>
+      </SafeAreaView>
+    </SafeAreaProvider>
+
   );
 }
 
@@ -23,6 +36,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "white",
+    padding: 10,
+    gap: 10,
   },
   headerImage: {
     color: '#808080',
@@ -36,6 +51,14 @@ const styles = StyleSheet.create({
   },
   textInput: {
     flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    // backgroundColor: "#f2f2f2",
+    borderRadius: 10,
+    borderWidth: 1,
+    borderColor: "#grey",
+    padding: 2,
+
   },
 
 });
