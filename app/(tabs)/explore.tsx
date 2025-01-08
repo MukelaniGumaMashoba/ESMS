@@ -1,16 +1,18 @@
-import { StyleSheet, Image, Platform, Text, View, TextInput, StatusBar } from 'react-native';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import { Ionicons } from '@expo/vector-icons';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { useFonts } from 'expo-font';
+import {
+  StyleSheet,
+  Image,
+  Platform,
+  View,
+  TextInput,
+  StatusBar,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { useFonts } from "expo-font";
+import { useEffect } from "react";
+import { Text } from "@/components/custom";
 
 export default function TabTwoScreen() {
-  const [loaded, error] = useFonts({
-    'SpaceMono-Regular': require('../../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-
-
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -19,27 +21,20 @@ export default function TabTwoScreen() {
           backgroundColor="white" // Sets the background color
           translucent={false} // Makes the status bar opaque
         />
-        <View >
+        <View>
           <View style={styles.textInput}>
-            <Ionicons name='search-circle-outline' size={20} />
-            <TextInput
-              placeholder='search content'
-              style={{ width: '90%' }}
-            />
+            <Ionicons name="search-circle-outline" size={20} />
+            <TextInput placeholder="search content" style={{ width: "90%" }} />
           </View>
 
           <View>
-            <Text style={{ fontFamily: "SpaceMono-Regular" }}>Explore</Text>
+            <Text style={{ fontFamily: "Roboto-Regular" }}>Explore</Text>
           </View>
 
-          <View>
-            <Text style={{ fontFamily: 'SpaceMono-Regular', fontSize: 30 }}>Inter Black</Text>
-          </View>
-
+          <View></View>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
-
   );
 }
 
@@ -51,13 +46,13 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   headerImage: {
-    color: '#808080',
+    color: "#808080",
     bottom: -90,
     left: -35,
-    position: 'absolute',
+    position: "absolute",
   },
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: "row",
     gap: 8,
   },
   textInput: {
@@ -69,7 +64,5 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#grey",
     padding: 2,
-
   },
-
 });

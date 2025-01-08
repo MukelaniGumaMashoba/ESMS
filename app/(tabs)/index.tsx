@@ -3,8 +3,16 @@ import { Ionicons } from '@expo/vector-icons';
 import Courses from '@/components/home/courses';
 import HeaderContainer from '@/components/header';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { useFonts } from 'expo-font';
 
 export default function HomeScreen() {
+
+  const [loaded, error] = useFonts({
+    'SpaceMono-Regular': require('../../assets/fonts/SpaceMono-Regular.ttf'),
+    'Roboto-Bold': require('../../assets/fonts/Roboto-Bold.ttf'),
+    'Roboto-Regular': require('../../assets/fonts/Roboto-Regular.ttf'),
+  });
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -21,7 +29,7 @@ export default function HomeScreen() {
 
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, gap: 10, marginBottom: 10 }}>
           <View>
-            <Text style={{ fontSize: 23, fontFamily: "Arial" }}>let's learn</Text>
+            <Text style={{ fontSize: 23, fontFamily: "SpaceMono-Regular" }}>let's learn</Text>
             <Text style={{ fontSize: 25, fontWeight: "400" }}>something new today</Text>
           </View>
 
