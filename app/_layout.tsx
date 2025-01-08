@@ -24,7 +24,9 @@ export default function RootLayout() {
 
   // sengilungiseile ade kuyileyokuqala into engekho🤘🤘🤘🤘🤘 sbonge bhudaharp yimbi website yeakho kodwa
 
-  //
+  //😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂
+  
+
   useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();

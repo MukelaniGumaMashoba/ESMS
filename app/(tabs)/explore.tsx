@@ -24,11 +24,11 @@ export default function TabTwoScreen() {
         <View>
           <View style={styles.textInput}>
             <Ionicons name="search-circle-outline" size={20} />
-            <TextInput placeholder="search content" style={{ width: "90%" }} />
+            <TextInput placeholder="search content" style={{ width: "90%",fontFamily: "Roboto-Regular"  }} />
           </View>
 
           <View>
-            <Text style={{ fontFamily: "Roboto-Regular" }}>Explore</Text>
+            <Text style={{ fontFamily: "Roboto-Regular"  }}>Explore</Text>
           </View>
 
           <View></View>

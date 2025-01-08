@@ -6,8 +6,8 @@ function HeaderContainer() {
     return (
         <View style={styles.topContainer}>
             <View style={styles.nameContainer}>
-                <Text>Hello, Mukelani</Text>
-                <Text><Ionicons name='trophy' size={10} ></Ionicons> Student</Text>
+                <Text style={{fontFamily: "Roboto-Regular" }}>Hello, Mukelani</Text>
+                <Text style={{fontFamily: "Roboto-Regular" }}><Ionicons name='trophy' size={10} ></Ionicons> Student</Text>
             </View>
             <View>
                 <Image

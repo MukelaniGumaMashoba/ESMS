@@ -29,8 +29,8 @@ export default function HomeScreen() {
 
         <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, gap: 10, marginBottom: 10 }}>
           <View>
-            <Text style={{ fontSize: 23, fontFamily: "SpaceMono-Regular" }}>let's learn</Text>
-            <Text style={{ fontSize: 25, fontWeight: "400" }}>something new today</Text>
+            <Text style={{ fontSize: 23, fontFamily: "Roboto-Regular" }}>let's learn</Text>
+            <Text style={{ fontSize: 25, fontWeight: "400", fontFamily: "Roboto-Regular" }}>something new today</Text>
           </View>
 
 
@@ -42,15 +42,15 @@ export default function HomeScreen() {
 
           {/* top student section */}
           <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-            <Text style={{ fontSize: 18 }}>Top Students</Text>
-            <Text>Show All</Text>
+            <Text style={{ fontSize: 18,fontFamily: "Roboto-Regular"  }}>Top Students</Text>
+            <Text style={{fontFamily: "Roboto-Regular" }}>Show All</Text>
           </View>
 
           <View style={styles.topStudentContainer}>
             <Image source={require("../../assets/images/icon.png")} style={{ height: "70%", width: "15%", borderRadius: 10 }} />
             <View>
-              <Text style={{ fontWeight: "bold" }}>Mukelani Mashoba</Text>
-              <Text style={{ color: "grey" }}>Student</Text>
+              <Text style={{ fontWeight: "bold",fontFamily: "Roboto-Regular"  }}>Mukelani Mashoba</Text>
+              <Text style={{ color: "grey",fontFamily: "Roboto-Regular"  }}>Student</Text>
             </View>
             <Ionicons name='arrow-forward' size={10} />
           </View>
@@ -58,7 +58,7 @@ export default function HomeScreen() {
           <View style={styles.banner}>
             <ImageBackground source={require("../../assets/pictures/img3.jpg")} style={{ width: '100%', height: 200, borderRadius: 20, overflow: 'hidden', justifyContent: 'center', alignItems: 'center' }}>
               <View style={styles.photoContainer}>
-                <Text style={{ color: "white", fontWeight: "300", fontSize: 18 }}>Let's Learn Together</Text>
+                <Text style={{ color: "white", fontWeight: "300", fontSize: 18,fontFamily: "Roboto-Regular" }}>Let's Learn Together</Text>
               </View>
             </ImageBackground>
           </View>

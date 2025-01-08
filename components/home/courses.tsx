@@ -51,6 +51,7 @@ const styles = StyleSheet.create({
     },
     topText: {
         fontSize: 12,
+        fontFamily: "Roboto-Regular" 
     },
     containerText: {
         fontSize: 18,
