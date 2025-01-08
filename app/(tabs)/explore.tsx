@@ -2,8 +2,15 @@ import { StyleSheet, Image, Platform, Text, View, TextInput, StatusBar } from 'r
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import { Ionicons } from '@expo/vector-icons';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { useFonts } from 'expo-font';
 
 export default function TabTwoScreen() {
+  const [loaded, error] = useFonts({
+    'SpaceMono-Regular': require('../../assets/fonts/SpaceMono-Regular.ttf'),
+  });
+
+
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -22,7 +29,11 @@ export default function TabTwoScreen() {
           </View>
 
           <View>
-            <Text style={{fontFamily: "Roboto-Bold"}}>Explore</Text>
+            <Text style={{ fontFamily: "SpaceMono-Regular" }}>Explore</Text>
+          </View>
+
+          <View>
+            <Text style={{ fontFamily: 'SpaceMono-Regular', fontSize: 30 }}>Inter Black</Text>
           </View>
 
         </View>
