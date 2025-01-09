@@ -1,7 +1,7 @@
 import HeaderContainer from '@/components/header'
 import { Ionicons } from '@expo/vector-icons';
 import React, { useState } from 'react'
-import { ImageBackground, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native'
+import { ImageBackground, Linking, Platform, StyleSheet, Switch, Text, TouchableOpacity, View } from 'react-native'
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 export default function setting() {
@@ -13,6 +13,30 @@ export default function setting() {
     const HandleLogout = () => {
         console.log("Day 1 without wifi");
     }
+
+    const sendWhatsApp = () => {
+        let msg = "type something";
+        let phoneWithCountryCode = "xxxxxxxxxx";
+
+        let mobile =
+            Platform.OS == "ios" ? phoneWithCountryCode : "+" + phoneWithCountryCode;
+        if (mobile) {
+            if (msg) {
+                let url = "whatsapp://send?text=" + msg + "&phone=" + mobile;
+                Linking.openURL(url)
+                    .then(data => {
+                        console.log("WhatsApp Opened");
+                    })
+                    .catch(() => {
+                        alert("Make sure WhatsApp installed on your device");
+                    });
+            } else {
+                alert("Please insert message to send");
+            }
+        } else {
+            alert("Please insert mobile no");
+        }
+    };
 
 
     return (
@@ -92,7 +116,7 @@ export default function setting() {
                             <Text>Send Feedback</Text>
                             <Text>Let us know how can we make ESMS better</Text>
                         </View>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={sendWhatsApp}>
                             <Ionicons name='arrow-forward-outline' size={24} />
                         </TouchableOpacity>
                     </View>
