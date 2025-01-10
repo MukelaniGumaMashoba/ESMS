@@ -11,6 +11,7 @@ import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { useFonts } from "expo-font";
 import { useEffect } from "react";
 import { Text } from "@/components/custom";
+import YouTube from "@/components/explore/youtube";
 
 export default function TabTwoScreen() {
   return (
@@ -24,14 +25,16 @@ export default function TabTwoScreen() {
         <View>
           <View style={styles.textInput}>
             <Ionicons name="search-circle-outline" size={20} />
-            <TextInput placeholder="search content" style={{ width: "90%",fontFamily: "Roboto-Regular"  }} />
+            <TextInput placeholder="search content" style={{ width: "90%", fontFamily: "Roboto-Regular" }} />
           </View>
 
           <View>
-            <Text style={{ fontFamily: "Roboto-Regular"  }}>Explore</Text>
+            <Text style={{ fontFamily: "Roboto-Regular" }}>Explore</Text>
           </View>
 
-          <View></View>
+          <View>
+            <YouTube />
+          </View>
         </View>
       </SafeAreaView>
     </SafeAreaProvider>
