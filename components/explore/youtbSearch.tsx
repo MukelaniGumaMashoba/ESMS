@@ -2,7 +2,7 @@ import * as youtubeSearch from "youtube-search";
 
 var opts: youtubeSearch.YouTubeSearchOptions = {
   maxResults: 10,
-  key: "yourkey"
+  key: "AIzaSyCQ0LzRru-OzTv4Va3Imb8f3HBriEW3-JI"
 };
 
 youtubeSearch.default("jsconf", opts, (err, results) => {
@@ -10,3 +10,4 @@ youtubeSearch.default("jsconf", opts, (err, results) => {
 
   console.dir(results);
 });
+
