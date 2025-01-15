@@ -22,9 +22,9 @@ export default function TabTwoScreen() {
           backgroundColor="white" // Sets the background color
           translucent={false} // Makes the status bar opaque
         />
-        <View>
+        <View style={{ margin: 10 }}>
           <View style={styles.textInput}>
-            <Ionicons name="search-circle-outline" size={20} />
+            <Ionicons name="search-circle-outline" size={24} />
             <TextInput placeholder="search content" style={{ width: "90%", fontFamily: "Roboto-Regular" }} />
           </View>
 
@@ -59,13 +59,14 @@ const styles = StyleSheet.create({
     gap: 8,
   },
   textInput: {
+    // backgroundColor: "#f2f2f2",
+    fontFamily: "Roboto-Regular",
+    borderWidth: 2,
+    borderRadius: 20,
+    padding: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    // backgroundColor: "#f2f2f2",
-    borderRadius: 10,
-    borderWidth: 1,
-    borderColor: "#grey",
-    padding: 2,
+    borderColor: "lightgrey",
   },
 });
