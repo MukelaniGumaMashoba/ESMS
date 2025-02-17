@@ -9,13 +9,13 @@ export default function Courses() {
             {/* 1st section */}
             <View style={styles.containers}>
                 <View style={styles.firContainer}>
-                    <Text style={styles.topText}>Mathematics</Text>
-                    <Text style={styles.containerText}>Grade 12</Text>
+                    <Text style={styles.topText}>Commerce</Text>
+                    <Text style={styles.containerText}>Get Resources</Text>
                 </View>
                 {/* 2nd section */}
                 <View style={styles.secContainer}>
-                    <Text style={styles.topText}>Physical Science</Text>
-                    <Text style={styles.containerText}>Grade 12</Text>
+                    <Text style={styles.topText}>Science</Text>
+                    <Text style={styles.containerText}>Get Resources</Text>
                 </View>
             </View>
 
@@ -23,13 +23,13 @@ export default function Courses() {
             <View style={styles.containers}>
                 {/* 3rd section */}
                 <View style={styles.thirContainer}>
-                    <Text style={styles.topText}>Life Science</Text>
-                    <Text style={styles.containerText}>Grade 12</Text>
+                    <Text style={styles.topText}>General</Text>
+                    <Text style={styles.containerText}>Get Resources</Text>
                 </View>
                 {/* 4th section */}
                 <View style={styles.forContainer}>
-                    <Text style={styles.topText}>Geography</Text>
-                    <Text style={styles.containerText}>Grade 12</Text>
+                    <Text style={styles.topText}>Life Science</Text>
+                    <Text style={styles.containerText}>Get Resources</Text>
                 </View>
             </View>
         </View>
