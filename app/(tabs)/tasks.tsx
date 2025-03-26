@@ -39,7 +39,7 @@ export default function TasksScreen() {
   };
   
   const handleAddTask = () => {
-    router.push('/(tabs)/explore');
+    router.push('/(tabs)/schedule');
   };
   
   const handleFilterToggle = () => {
