@@ -5,11 +5,10 @@ import {
   View,
   TextInput,
   StatusBar,
+  ScrollView,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-import { useFonts } from "expo-font";
-import { useEffect } from "react";
 import { Text } from "@/components/custom";
 
 export default function TabTwoScreen() {
@@ -17,21 +16,35 @@ export default function TabTwoScreen() {
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
         <StatusBar
-          barStyle="dark-content" // Sets the text color to light
-          backgroundColor="white" // Sets the background color
-          translucent={false} // Makes the status bar opaque
+          barStyle="dark-content"
+          backgroundColor="white"
+          translucent={false}
         />
-        <View style={{ margin: 10 }}>
+        <ScrollView showsHorizontalScrollIndicator={false} style={{ margin: 10 }}>
           <View style={styles.textInput}>
-            <Ionicons name="search-circle-outline" size={24} />
+            <Ionicons name="search-circle-outline" size={30} color={"lightgray"} />
             <TextInput placeholder="search content" style={{ width: "90%", fontFamily: "Roboto-Regular" }} />
           </View>
 
           <View>
-            <Text style={{ fontFamily: "Roboto-Regular" }}>Explore</Text>
+            <Text style={{ fontFamily: "Roboto-Regular", fontSize: 20, textAlign: "center" }}>Explore</Text>
           </View>
 
-        </View>
+
+          <View style={{ backgroundColor: "lightgray", marginVertical: 10, borderRadius: 40, overflow: "hidden" }}>
+            <View style={styles.videoContainer}>
+              <View style={{ width: "100%", padding: 10 }}>
+                <Image
+                  source={require("../../assets/pictures/img1.png")}
+                  style={styles.headerImage} />
+                <Text style={styles.textInput}>Welcome Learn Javascript</Text>
+              </View>
+            </View>
+          </View>
+
+
+
+        </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -45,17 +58,15 @@ const styles = StyleSheet.create({
     gap: 10,
   },
   headerImage: {
-    color: "#808080",
-    bottom: -90,
-    left: -35,
-    position: "absolute",
+    height: 150,
+    width: "100%",
+    borderRadius: 40,
   },
   titleContainer: {
     flexDirection: "row",
     gap: 8,
   },
   textInput: {
-    // backgroundColor: "#f2f2f2",
     fontFamily: "Roboto-Regular",
     borderWidth: 2,
     borderRadius: 20,
@@ -64,5 +75,10 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     borderColor: "lightgrey",
+  },
+  videoContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
 });
