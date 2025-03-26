@@ -35,7 +35,6 @@ function Schedule() {
                 <View style={{ margin: 10 }}>
                     <Text style={{ fontFamily: "Roboto-Regular", fontSize: 20, textAlign: "center", marginBottom: 10 }}>To Dos</Text>
                     <View>
-                        <Text style={{ fontFamily: "Roboto-Regular" }}>Name</Text>
                         <View style={styles.textInput}>
                             <TextInput
                                 placeholder="Enter Name"
@@ -47,22 +46,9 @@ function Schedule() {
                         </View>
 
                         <View style={styles.doneContainer}>
-                            <Text style={styles.textDone}>Done</Text>
-                            <View>
+                            <Text style={styles.textDone}>Task</Text>
+                            <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center",marginTop: 10 }}>
                                 <Text>- Study C++</Text>
-                                <TouchableOpacity onPress={deleteTask}>
-                                    <Ionicons name="trash-outline" size={24} color="red" />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
-
-                        <View style={styles.onProgressContainer}>
-                            <Text style={styles.textOnprogress}>On Progress</Text>
-                            <View>
-                                <Text>- Study C++</Text>
-                                <TouchableOpacity onPress={doneTask}>
-                                    <Ionicons name="checkmark-circle-outline" size={24} color="green" />
-                                </TouchableOpacity>
                                 <TouchableOpacity onPress={deleteTask}>
                                     <Ionicons name="trash-outline" size={24} color="red" />
                                 </TouchableOpacity>
