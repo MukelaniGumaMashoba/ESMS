@@ -6,12 +6,29 @@ import {
   TextInput,
   StatusBar,
   ScrollView,
+  Alert,
+  TouchableOpacity,
+  Button,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { Text } from "@/components/custom";
-
+import React, { useState, useCallback, useRef } from "react";
+import YoutubePlayer from "react-native-youtube-iframe";
 export default function TabTwoScreen() {
+  const [playing, setPlaying] = useState(false);
+
+  const onStateChange = useCallback((state: string) => {
+    if (state === "ended") {
+      setPlaying(false);
+      Alert.alert("video has finished playing!");
+    }
+  }, []);
+
+  const togglePlaying = useCallback(() => {
+    setPlaying((prev) => !prev);
+  }, []);
+
   return (
     <SafeAreaProvider>
       <SafeAreaView style={styles.container}>
@@ -42,6 +59,15 @@ export default function TabTwoScreen() {
             </View>
           </View>
 
+          <View style={{ backgroundColor: "lightgray", marginVertical: 10, borderRadius: 40, overflow: "hidden"}}>
+            <YoutubePlayer
+              height={180}
+              play={playing}
+              videoId={"MbqSMgMAzxU"}
+              onChangeState={onStateChange}
+            />
+            <Button title={playing ? "pause" : "play"} onPress={togglePlaying} />
+          </View>
 
 
         </ScrollView>
