@@ -1,12 +1,12 @@
 import { Text } from '@/components/custom'
 import React from 'react'
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 export default function AboutCompany() {
     return (
-        <View>
-            <Text>About ESMS</Text>
-
+        <View style={styles.container}>
+            <Text style={styles.text}>ESMS</Text>
+            <Text style={styles.text}>Educational School Management System</Text>
             <View>
                 <Text>
                     With partnership with the Ministry of Education, ESMS is a platform that provides 
@@ -21,3 +21,19 @@ export default function AboutCompany() {
         </View>
     )
 }
+
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        padding: 20,
+    },
+    text: {
+        fontSize: 16,
+        color: '#333',
+        marginBottom: 10,
+    },
+})

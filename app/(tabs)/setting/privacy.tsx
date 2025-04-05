@@ -1,10 +1,11 @@
 import { Text } from '@/components/custom'
 import React from 'react'
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
 
 export default function PrivacySettings() {
     return (
-        <View>
+        <View style={styles.container}>
+            <Text style={styles.text}>Privacy Settings</Text> 
             <Text>Privacy</Text>
 
             <View>
@@ -22,3 +23,17 @@ export default function PrivacySettings() {
         </View>
     )
 }
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff',
+        padding: 20,
+    },
+    text: {
+        fontSize: 16,
+        color: '#333',
+        marginBottom: 10,
+    },
+})
