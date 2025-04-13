@@ -1,5 +1,9 @@
 {
   "name": "esms",
+  "author": {
+    "name": "Mukelani",
+    "email": "mukelanilastborn@gmail.com"
+  },
   "main": "expo-router/entry",
   "version": "1.0.0",
   "scripts": {
