@@ -6,18 +6,19 @@ import { colors } from '@/constants/color';
 import { TaskItem } from '@/components/TaskItem';
 import { EmptyState } from '@/components/EmptyState';
 import { Button } from '@/components/Button';
-import { useTaskStore } from '@/store/taskStore';
+// import { useTaskStore } from '@/store/taskStore';
 import { TaskStatus, TaskPriority, TaskCategory, Task } from '@/types';
-import { 
-  CheckCircle, 
-  Plus, 
-  Filter, 
-  Clock, 
-  AlertCircle, 
-  BookOpen 
+import {
+  CheckCircle,
+  Plus,
+  Filter,
+  Clock,
+  AlertCircle,
+  BookOpen
 } from 'lucide-react-native';
 
 export default function TasksScreen() {
+  const [tasks, setTasks] = useState<Task[]>([]);
   const router = useRouter();
   const [activeTab, setActiveTab] = useState<TaskStatus>('pending');
   const [filterVisible, setFilterVisible] = useState(false);
@@ -25,27 +26,27 @@ export default function TasksScreen() {
     priority?: TaskPriority;
     category?: TaskCategory;
   }>({});
-  
-  const { tasks, completeTask, filterTasks } = useTaskStore();
-  
+
+  // const { tasks, completeTask, filterTasks } = useTaskStore();
+
   // Filter tasks based on active tab and filters
-  const filteredTasks = filterTasks({
-    status: activeTab,
-    ...filters,
-  });
-  
+  // const filteredTasks = filterTasks({
+  // status: activeTab,
+  // ...filters,
+  // });
+
   const handleTaskComplete = (taskId: string) => {
-    completeTask(taskId);
+    // completeTask(taskId);
   };
-  
+
   const handleAddTask = () => {
     router.push('/(tabs)/schedule');
   };
-  
+
   const handleFilterToggle = () => {
     setFilterVisible(!filterVisible);
   };
-  
+
   const handleFilterChange = (filterType: 'priority' | 'category', value: any) => {
     setFilters(prev => {
       // If the same value is selected, remove the filter
@@ -54,7 +55,7 @@ export default function TasksScreen() {
         delete newFilters[filterType];
         return newFilters;
       }
-      
+
       // Otherwise, set the new filter value
       return {
         ...prev,
@@ -62,18 +63,18 @@ export default function TasksScreen() {
       };
     });
   };
-  
+
   const clearFilters = () => {
     setFilters({});
   };
-  
+
   const renderFilterButton = (
     filterType: 'priority' | 'category',
     value: any,
     label: string
   ) => {
     const isActive = filters[filterType] === value;
-    
+
     return (
       <TouchableOpacity
         style={[
@@ -93,12 +94,12 @@ export default function TasksScreen() {
       </TouchableOpacity>
     );
   };
-  
+
   return (
     <SafeAreaView style={styles.container} edges={['top']}>
       <View style={styles.header}>
         <Text style={styles.title}>Tasks</Text>
-        
+
         <TouchableOpacity
           style={styles.filterButton}
           onPress={handleFilterToggle}
@@ -106,7 +107,7 @@ export default function TasksScreen() {
           <Filter size={20} color={colors.text} />
         </TouchableOpacity>
       </View>
-      
+
       <View style={styles.tabsContainer}>
         <TouchableOpacity
           style={[
@@ -124,7 +125,7 @@ export default function TasksScreen() {
             To Do
           </Text>
         </TouchableOpacity>
-        
+
         <TouchableOpacity
           style={[
             styles.tab,
@@ -141,7 +142,7 @@ export default function TasksScreen() {
             In Progress
           </Text>
         </TouchableOpacity>
-        
+
         <TouchableOpacity
           style={[
             styles.tab,
@@ -159,7 +160,7 @@ export default function TasksScreen() {
           </Text>
         </TouchableOpacity>
       </View>
-      
+
       {filterVisible && (
         <View style={styles.filtersContainer}>
           <View style={styles.filterSection}>
@@ -170,7 +171,7 @@ export default function TasksScreen() {
               {renderFilterButton('priority', 'low', 'Low')}
             </View>
           </View>
-          
+
           <View style={styles.filterSection}>
             <Text style={styles.filterSectionTitle}>Category</Text>
             <View style={styles.filterButtonsRow}>
@@ -181,7 +182,7 @@ export default function TasksScreen() {
               {renderFilterButton('category', 'project', 'Project')}
             </View>
           </View>
-          
+
           {(filters.priority || filters.category) && (
             <Button
               title="Clear Filters"
@@ -193,14 +194,14 @@ export default function TasksScreen() {
           )}
         </View>
       )}
-      
+
       <ScrollView
         style={styles.tasksContainer}
         contentContainerStyle={styles.tasksContent}
         showsVerticalScrollIndicator={false}
       >
-        {filteredTasks.length > 0 ? (
-          filteredTasks.map((task: Task) => (
+        {tasks.length > 0 ? (
+          tasks.map((task: Task) => (
             <TaskItem
               key={task.id}
               task={task}
@@ -223,7 +224,7 @@ export default function TasksScreen() {
           />
         )}
       </ScrollView>
-      
+
       <View style={styles.actionsContainer}>
         <Button
           title="Add New Task"
