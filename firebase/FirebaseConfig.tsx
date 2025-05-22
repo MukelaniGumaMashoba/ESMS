@@ -3,7 +3,6 @@ import * as firebaseAuth from "firebase/auth";
 import { initializeAuth } from "firebase/auth";
 import ReactNativeAsyncStorage from "@react-native-async-storage/async-storage";
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyBq7DzKywamQ4qlNpi_VVehSWZCbLo2ApU",
   authDomain: "esms-bc30a.firebaseapp.com",
@@ -15,9 +14,7 @@ const firebaseConfig = {
 };
 
 const reactNativePersistence = (firebaseAuth as any).getReactNativePersistence;
-// Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = initializeAuth(app, {
   persistence: reactNativePersistence(ReactNativeAsyncStorage)
 });
-// const analytics = getAnalytics(app);

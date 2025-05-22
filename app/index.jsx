@@ -1,6 +1,6 @@
 import { router, Stack } from "expo-router";
 import { use, useEffect, useState } from "react";
-import { auth } from "@/firebase/FirebaseConfig";
+import auth from "@react-native-firebase/auth";
 
 export default function index() {
   const [initializing, setInitializing] = useState(true);
@@ -16,7 +16,7 @@ export default function index() {
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
+    return subscriber;
   }
   , []);
 
@@ -40,19 +40,18 @@ export default function index() {
   // }, []);
 
   return (
-    <Stack>
-      <Stack.Screen
-        name="(auth)/login"
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="(auth)/signup"
-        options={{ headerShown: false }}
-      />
-      <Stack.Screen
-        name="(auth)/forgot-password"
-        options={{ headerShown: false }}
-      />
-    </Stack>
+    <>
+      <Stack
+        initialRouteName="(auth)/login"
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        <Stack.Screen name="(auth)/login" />
+        <Stack.Screen name="(auth)/signup" />
+        <Stack.Screen name="(auth)/forgot-password" />
+      </Stack>
+    </>
   );
+
 }
