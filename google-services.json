@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "355330654333",
+    "project_id": "esms-bc30a",
+    "storage_bucket": "esms-bc30a.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:355330654333:android:ead1cf021de2d8ba077114",
+        "android_client_info": {
+          "package_name": "com.mukelani_mashoba.ESMS"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "355330654333-2ssjbkp98p34qrmh56itd3ma08gct81n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-kb24NPI19Hr77MZrzuB2dsCZL1Yk9Ng"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "355330654333-2ssjbkp98p34qrmh56itd3ma08gct81n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

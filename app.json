@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.mukelani_mashoba.ESMS"
+      "package": "com.mukelani_mashoba.ESMS",
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "bundler": "metro",
