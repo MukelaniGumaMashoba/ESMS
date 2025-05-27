@@ -11,6 +11,7 @@ import { useEffect } from "react";
 import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { AppProvider } from "@/context/appcontext";
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -25,7 +26,7 @@ export default function RootLayout() {
   // sengilungiseile ade kuyileyokuqala into engekho🤘🤘🤘🤘🤘 sbonge bhudaharp yimbi website yeakho kodwa
 
   //😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂😂
-  
+
 
   useEffect(() => {
     if (loaded) {
@@ -39,11 +40,13 @@ export default function RootLayout() {
 
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
+      <AppProvider>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="+not-found" />
+        </Stack>
+        <StatusBar style="auto" />
+      </AppProvider>
     </ThemeProvider>
   );
 }

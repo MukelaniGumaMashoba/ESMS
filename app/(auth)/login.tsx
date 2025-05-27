@@ -13,7 +13,8 @@ import {
     SafeAreaView
 } from 'react-native';
 import { useState } from 'react';
-import { useRouter } from 'expo-router';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '@/firebase/FirebaseConfig';
 
 export default function login() {
     const [email, setEmail] = useState('');
@@ -21,9 +22,30 @@ export default function login() {
     const [error, setError] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
+    const handleLogin = () => {
+        if (email === '' || password === '') {
+            setError('Please fill in all fields');
+            return;
+        }
+        else {
+            signInWithEmailAndPassword(auth, email, password)
+                .then((userCredentials) => {
+                    const user = userCredentials.user;
+                    console.log('User login up:', user.email);
+                    Alert.alert('Success', 'Account created successfully!');
+                })
+                .catch((error) => {
+                    console.error('Error signing up:', error);
+                    Alert.alert('Error', error.message);
+                });
+        }
+        // Here you would typically handle the login logic, e.g., calling an API or Firebase auth
+        Alert.alert('Login', `Email: ${email}, Password: ${password}`);
+    };
+
     return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <View>
+        <SafeAreaView style={{ flex: 1, backgroundColor: '#f2f2f2' }}>
+            <View style={styles.container}>
                 <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 20 }}>Login</Text>
                 <TextInput
                     placeholder="Email"

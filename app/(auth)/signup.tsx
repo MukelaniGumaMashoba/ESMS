@@ -1,3 +1,5 @@
+import { auth } from '@/firebase/FirebaseConfig';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
 
@@ -10,6 +12,18 @@ const SignUp = () => {
         if (password !== confirmPassword) {
             Alert.alert('Error', 'Passwords do not match');
             return;
+        }
+        else {
+            createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredentials) => {
+                    const user = userCredentials.user;
+                    console.log('User signed up:', user.email);
+                    Alert.alert('Success', 'Account created successfully!');
+                })
+                .catch((error) => {
+                    console.error('Error signing up:', error);
+                    Alert.alert('Error', error.message);
+                });
         }
         // Handle sign-up logic here
         Alert.alert('Success', 'Account created successfully!');
@@ -55,7 +69,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#f5f5f5',
+        backgroundColor: 'white',
         padding: 20,
     },
     title: {

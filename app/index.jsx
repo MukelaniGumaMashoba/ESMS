@@ -5,7 +5,6 @@ import auth from "@react-native-firebase/auth";
 export default function index() {
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState(null);
-  const [error, setError] = useState(null);
 
   const onAuthStateChanged = (user) => {
     setUser(user);
@@ -19,25 +18,6 @@ export default function index() {
     return subscriber;
   }
   , []);
-
-  // useEffect(() => {
-  //   auth().getSession().then(({ data: { session } }) => {
-  //     if (session) {
-  //       router.replace("/(tabs)/");
-  //     } else {
-  //       console.log('no user')
-  //     }
-  //   });
-
-  //   auth().onAuthStateChange((_event, session) => {
-  //     if (session) {
-  //       router.replace("/(tabs)/");
-  //     } else {
-  //       console.log('no user')
-  //       router.replace("/(auth)/login");
-  //     }
-  //   });
-  // }, []);
 
   return (
     <>
