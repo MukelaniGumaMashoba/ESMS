@@ -12,6 +12,8 @@ import "react-native-reanimated";
 
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { AppProvider } from "@/context/appcontext";
+import { ConvexProvider } from "@/context/ConvexProvider";
+import { useConvexAuth } from "convex/react";
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
@@ -39,14 +41,30 @@ export default function RootLayout() {
   }
 
   return (
-    <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-      <AppProvider>
-        <Stack>
-          <Stack.Screen name="index" options={{ headerShown: false }} />
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar style="auto" />
-      </AppProvider>
+    <ThemeProvider value={colorScheme === "light" ? DefaultTheme : DarkTheme}>
+      <ConvexProvider>
+        <AppProvider>
+          <AuthLayout />
+          <StatusBar style="auto" />
+        </AppProvider>
+      </ConvexProvider>
     </ThemeProvider>
   );
 }
+
+const AuthLayout = () => {
+
+  const {isAuthenticated} = useConvexAuth();
+  return (
+       <Stack screenOptions={{ headerShown: false }}>
+        <Stack.Protected guard={isAuthenticated}>
+          <Stack.Screen name="index" />
+        </Stack.Protected>
+
+        <Stack.Protected guard={!isAuthenticated}>
+            <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen name="+not-found" /> </Stack.Protected>
+    </Stack>
+  );
+};
